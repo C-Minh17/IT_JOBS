@@ -1,0 +1,27 @@
+.headerHome{
+  height:60px;
+  position: fixed;
+  top:0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  background-color: #d1e5f7;
+  width: 100%;
+  &--container{
+    width: 100%;
+    margin : 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo{
+      font-size: 30px;
+      font-weight: 800;
+      color:#0179FD;
+    }
+    &--nav{
+      &__one{
+        margin-right: 10px;
+      }
+    }
+  }
+}

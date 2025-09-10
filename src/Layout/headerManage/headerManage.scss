@@ -1,0 +1,39 @@
+.headerManage{
+  display: flex;
+  border-bottom: 1px #e0dada solid;
+  height: 60px;
+  position: sticky;
+  top:0;
+  z-index: 99;
+  background-color: #C5E2FC;
+  width: 100%;
+  overflow: hidden;
+  &--logo{
+    width: 200px;
+    border-right: 1px #e0dada solid;
+    h2{
+      font-size: 26px;
+      text-align: center;
+      color:#0179FD;
+      margin: 15px 0;
+    }
+    transition: all 0.2s linear;
+  }
+
+  &--logoClose{
+    width: 80px;
+  }
+
+  &--nav{
+    flex:1;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 10px;
+    margin-right: 60px;
+
+    button{
+      margin-right:15px;
+    }
+  }
+}
