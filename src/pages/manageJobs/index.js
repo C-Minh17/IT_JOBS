@@ -87,7 +87,15 @@ function ManageJobs(){
             </Tooltip>
             <Popconfirm
               title="Bạn có chắc muốn xóa công việc này không ?"
-              onConfirm={async ()=>{ await deleleJobs(item.id) ; setIsReload(!isReload) ; successDelete()}}
+              onConfirm={async ()=>{ 
+                const dataJob = dataCompany.jobs.filter(i => i != item.id)
+                await  patchCompanies(idCompany,{
+                  jobs:dataJob
+                })
+                await deleleJobs(item.id)
+                setIsReload(!isReload)
+                successDelete()
+              }}
               okText="Yes"
               cancelText="No"
             >
