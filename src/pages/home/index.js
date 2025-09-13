@@ -8,9 +8,12 @@ import { Link, useNavigate } from "react-router"
 import { getJobs } from "../../api/jobs"
 import { useDispatch, useSelector } from "react-redux"
 import { changeOff } from "../../actions/login"
+import Cookies from "js-cookie"
+import { getUsers } from "../../api/user"
 
 function Home(){
-  const idCompany = localStorage.getItem("idCompany")
+  const token = Cookies.get("token")
+  const [idCompany , setIdCompany] = useState()
   const [company , setCompany] = useState([])
   const [jobs , setJobs] = useState([])
   let slMaxJobs = 8
@@ -42,6 +45,9 @@ function Home(){
   useEffect(()=>{
     getCompanies().then(data => setCompany(data))
     getJobs().then(data => setJobs(data))
+    getUsers().then(data => {
+      setIdCompany(data.find(item => item.token == token)?.companyId)
+    })
   },[statusToken])
 
   const onSearch=(e)=>{

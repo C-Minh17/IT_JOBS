@@ -27,7 +27,6 @@ function SignIn(){
       dispacth(changeToken())
       form.resetFields()
       Cookies.set("token", check.token , { expires: 1, path: "/" })
-      localStorage.setItem("idCompany" , check.companyId)
       navigate("/")
     }else{
       signInError()

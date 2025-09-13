@@ -9,7 +9,7 @@ import Cookies from "js-cookie"
 
 function InfoCompanyManage(){
   const [dataCompany ,setDataCompany] = useState()
-  const [idCompany , setIdCompany] = useState(localStorage.getItem("idCompany"))
+  const [idCompany , setIdCompany] = useState()
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [token,setToken] = useState(Cookies.get("token"))
@@ -25,7 +25,11 @@ function InfoCompanyManage(){
   };
 
   useEffect(()=>{
-    if (idCompany != "null"){
+    getUsers().then(data => {
+      setIdUser(data.find(item => item.token == token)?.id)
+      setIdCompany(data.find(item => item.token == token)?.companyId)
+    })
+    if (idCompany){
       getCompanyId(idCompany).then(data => {
         setDataCompany(data[0])
         form.setFieldsValue({
@@ -34,8 +38,6 @@ function InfoCompanyManage(){
         })
       })
     }
-
-    getUsers().then(data => setIdUser(data.find(item => item.token == token).id))
   },[idCompany,form])
 
 

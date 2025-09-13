@@ -3,9 +3,12 @@ import { deleleApplication, getApplications, patchApplication } from "../../api/
 import { getJobs } from "../../api/jobs"
 import { Button, Modal, Popconfirm, Table, Tag, Tooltip } from "antd"
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons"
+import Cookies from "js-cookie"
+import { getUsers } from "../../api/user"
 
 function ManageCV(){
-  const idCompany = localStorage.getItem("idCompany")
+  const token = Cookies.get("token")
+  const [idCompany , setIdCompany] = useState()
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isReload, setIsReload] = useState(false);
   const [dataCV , setDataCV] = useState([])
@@ -15,7 +18,10 @@ function ManageCV(){
   useEffect(()=>{
     getApplications().then(data => setDataCV(data.reverse().filter(item => item.companyId == idCompany)))
     getJobs().then(data => setDataJob(data))
-  },[isReload])
+    getUsers().then(data => {
+      setIdCompany(data.find(item => item.token == token)?.companyId)
+    })
+  },[isReload,idCompany])
 
 
   const dataSource = dataCV.map(item => {

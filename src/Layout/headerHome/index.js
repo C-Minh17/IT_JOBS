@@ -42,7 +42,6 @@ function HeaderHome(){
   const handleLogout = ()=>{
     dispacth(changeToken())
     Cookies.remove("token")
-    localStorage.removeItem("idCompany")
     setToken(null)  
     openNoti()
   }

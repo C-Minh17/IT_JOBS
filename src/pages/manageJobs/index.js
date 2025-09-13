@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { deleleJobs, getJobs, patchJobs, postJobs } from "../../api/jobs";
 import { Link } from "react-router";
 import { getCompanyId, patchCompanies } from "../../api/company";
+import Cookies from "js-cookie"
+import { getUsers } from "../../api/user"
 
 function ManageJobs(){
-  const idCompany = localStorage.getItem("idCompany")
+  const token = Cookies.get("token")
+  const [idCompany , setIdCompany] = useState()
   const [dataJobs ,setDataJobs] = useState([])
   const [dataCompany ,setDataCompany] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,15 +52,20 @@ function ManageJobs(){
     setIsModalOpen(false);
     form.resetFields()
   };
+  useEffect(()=>{
+    getUsers().then(data => {
+      setIdCompany(data.find(item => item.token == token)?.companyId)
+    })
+  },[token])
 
   useEffect(()=>{
     getJobs().then(data => {
       setDataJobs(data.reverse().filter(item => item.companyId == idCompany))
     })
-    if(idCompany != "null"){
+    if(idCompany){
       getCompanyId(idCompany).then(data => setDataCompany(data[0]))
     }
-  },[isReload])
+  },[isReload,idCompany])
 
   const dataSource = 
     dataJobs.map(item => {

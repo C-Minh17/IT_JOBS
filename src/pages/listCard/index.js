@@ -13,7 +13,7 @@ function ListCard(){
   const [apiList,setApiList]= useState([])
 
   useEffect(()=>{
-    if(categoryCard.category == "company"){
+    if(categoryCard == "company"){
       getCompanies().then(data => setApiList(data))
     }else {
       getJobs().then(data => setApiList(data))
@@ -24,12 +24,12 @@ function ListCard(){
     <>  
       <div className="listCard">
         <div className="listCard--item">
-          {categoryCard.category == "company" ? <h2>Tất cả các công ty hàng đầu</h2> : <h2>Tất cả các Jobs </h2>}
+          {categoryCard == "company" ? <h2>Tất cả các công ty hàng đầu</h2> : <h2>Tất cả các Jobs </h2>}
           <Row gutter={15}>
-            {categoryCard.category == "company" ?
+            {categoryCard == "company" ?
               apiList.map(company => (
                   <Col style={{marginBottom:"10px"}} key={company.id} sm={6}>
-                    <Card hoverable title={<h3 level={4}>{company.name}</h3>}  style={{height:"100%"}}>
+                    <Card hoverable title={<h3 style={{whiteSpace: "normal",wordBreak: "break-word",margin: 0}} level={4} >{company.name}</h3>}  style={{height:"100%"}}>
                       <Space direction="vertical" size="small" style={{ width: "100%" }}>
                         <div>
                           <PhoneOutlined style={{ color: "#1890ff", marginRight: 8 }} />

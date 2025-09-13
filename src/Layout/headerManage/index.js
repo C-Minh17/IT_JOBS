@@ -29,7 +29,6 @@ function HeaderManage(prop){
   };
   const handleLogout = ()=>{
     Cookies.remove("token")
-    localStorage.removeItem("idCompany")
     dispacth(changeToken())
     navigare("/")
   }

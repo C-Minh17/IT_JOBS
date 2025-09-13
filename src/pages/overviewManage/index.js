@@ -11,10 +11,13 @@ function OverviewManage(){
   const [quantityJob , setQuantityJob] = useState([0,0])
   const [quantityCV , setQuantityCV] = useState([0,0])
   const [infoCompany , setInfoCompany] = useState({})
-  const idCompany = localStorage.getItem("idCompany")
+  const [idCompany , setIdCompany] = useState()
 
 
   useEffect(()=>{
+    getUsers().then(data => {
+      setIdCompany(data.find(item => item.token == token)?.companyId)
+    })
     getJobs().then(data => {
       const quantity = data.filter(item => item.companyId == idCompany).length
       const quantityOn = data.filter(item => item.companyId == idCompany && item.status == true).length
@@ -28,7 +31,7 @@ function OverviewManage(){
     })
 
     getCompanies().then(data => setInfoCompany(data.find(item => item.id == idCompany)))
-  },[])
+  },[idCompany])
 
   return (
     <>

@@ -2,13 +2,17 @@ import { Layout, Menu } from "antd"
 import { Content, Footer, Header } from "antd/es/layout/layout"
 import Sider from "antd/es/layout/Sider"
 import HeaderManage from "../headerManage"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppstoreOutlined, BankOutlined, FileTextOutlined, OrderedListOutlined } from "@ant-design/icons";
-import { Link, Outlet, useLocation } from "react-router";
+import { Link, Outlet, useLocation, useNavigate } from "react-router";
+import Cookies from "js-cookie"
+
 
 function LayoutManage(){
+  const token = Cookies.get("token")
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const location = useLocation()
+  const navigate = useNavigate()
 
   const items = [
     {
@@ -32,6 +36,12 @@ function LayoutManage(){
       icon: <FileTextOutlined />,
     }
   ]
+
+  useEffect(()=>{
+    if(!token){
+      navigate('/')
+    }
+  },[])
   return (
     <>
       <Layout >
