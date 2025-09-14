@@ -6,7 +6,7 @@ import Cookies from "js-cookie"
 import allReducer from "../../reduces"
 import { useDispatch, useSelector } from "react-redux"
 import { changeToken } from "../../actions/setToken"
-import { LogoutOutlined, UserOutlined } from "@ant-design/icons"
+import { LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons"
 
 function HeaderHome(){
   const [token,setToken] = useState(Cookies.get("token"))
@@ -64,13 +64,13 @@ function HeaderHome(){
           <div className="headerHome--container--nav">
             {token ? (
               <>
-                <Link  to="/manage"><Button className="headerHome--container--nav__one" icon={<UserOutlined />}>manege</Button></Link>
-                <Button icon={<LogoutOutlined />} onClick={showModal} type="primary" className="headerHome--container--nav__two">log out</Button>
+                <Link  to="/manage"><Button className="headerHome--container--nav__one" icon={<UserOutlined />}><span className="text-btHeader">manege</span></Button></Link>
+                <Button icon={<LogoutOutlined />} onClick={showModal} type="primary" className="headerHome--container--nav__two"><span className="text-btHeader">log out</span></Button>
               </>
             ) : (
               <>
-                <Link to="/signin"><Button className="headerHome--container--nav__one">Sign in</Button></Link>
-                <Link to={"/signup"}><Button type="primary" className="headerHome--container--nav__two">Sign up</Button></Link>
+                <Link to="/signin"><Button icon={<LoginOutlined />} className="headerHome--container--nav__one"><span className="text-btHeader">Sign in</span></Button></Link>
+                <Link to={"/signup"}><Button icon={<UserAddOutlined />} type="primary" className="headerHome--container--nav__two"><span className="text-btHeader">Sign up</span></Button></Link>
               </>
             )}
           </div>

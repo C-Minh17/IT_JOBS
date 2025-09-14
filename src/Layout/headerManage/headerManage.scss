@@ -18,6 +18,10 @@
       margin: 15px 0;
     }
     transition: all 0.2s linear;
+
+    @media (max-width : 576px){
+      width: 50px;
+    }
   }
 
   &--logoClose{
@@ -31,9 +35,35 @@
     justify-content: space-between;
     margin: 0 10px;
     margin-right: 60px;
+    @media (max-width : 576px){
+      margin-right: 20px;
+    }
 
     button{
       margin-right:15px;
     }
+
+    @media (max-width : 576px){
+      button{
+        margin-right:5px;
+      }
+      display: flex;
+      flex-direction:row-reverse ;
+      &__close{
+        display: none;
+      }
+      &__logout{
+        .text-btHeader{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width : 576px){
+  .headerManage{
+    width: 100%;
   }
 }

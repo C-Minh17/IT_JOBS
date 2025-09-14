@@ -13,14 +13,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width : 576px){
+      margin:0 30px ;
+    }
     &__logo{
       font-size: 30px;
       font-weight: 800;
       color:#0179FD;
+      @media (max-width : 576px){
+        font-size: 20px;
+      }
     }
     &--nav{
       &__one{
         margin-right: 10px;
+      }
+      @media (max-width : 576px){
+        &__one{
+          .text-btHeader{
+            display: none;
+          }
+        }
+        &__two{
+          .text-btHeader{
+            display: none;
+          }
+        }
       }
     }
   }

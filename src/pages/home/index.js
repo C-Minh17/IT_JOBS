@@ -116,8 +116,8 @@ function Home(){
               if(slMaxCompany!=0 && company.id != idCompany){
                 slMaxCompany -=1  
                 return (
-                  <Col style={{marginBottom:"10px"}} key={company.id} sm={6}>
-                    <Card hoverable title={<h3 level={4}>{company.name}</h3>}  style={{height:"100%"}}>
+                  <Col style={{marginBottom:"10px"}} key={company.id} xs={24} sm={6}>
+                    <Card hoverable title={<h4 style={{whiteSpace: "normal",wordBreak: "break-word",margin: 0}}>{company.name}</h4>}  style={{height:"100%"}}>
                       <Space direction="vertical" size="small" style={{ width: "100%" }}>
                         <div>
                           <PhoneOutlined style={{ color: "#1890ff", marginRight: 8 }} />
@@ -159,7 +159,7 @@ function Home(){
               if(slMaxJobs!=0 && job.companyId != idCompany && job.status == true){
                 slMaxJobs -= 1
                 return (
-                  <Col style={{marginBottom:"10px"}} key={job.id} sm={6}>
+                  <Col style={{marginBottom:"10px"}} key={job.id} xs={24} sm={6}>
                     <Link to={"/details/job/" + job.id}>
                       <Card hoverable style={{height:"100%"}}>
                         <h3 level={4} style={{ marginBottom: 8 }}>

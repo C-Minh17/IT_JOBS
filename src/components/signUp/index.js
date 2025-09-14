@@ -6,6 +6,7 @@ import { changeOn } from "../../actions/login"
 import { useDispatch, useSelector } from "react-redux"
 import { createUser, getUsers } from "../../api/user"
 import { useEffect, useState } from "react"
+import "../signIn/signin.scss"
 
 function SignUp(){
   const [dataUsers , setDataUsers] = useState()
@@ -55,7 +56,7 @@ function SignUp(){
       {contextHolder}
       <div className="containerLogin">
         <div className="container--signUp">
-          <Form form={form} style={{width: 500 , backgroundColor:"#C5E2FC" , padding:"20px 40px" , borderRadius:10}} layout="vertical" name="signUp" onFinish={requestSignUp}>
+          <Form form={form} layout="vertical" name="signUp" onFinish={requestSignUp}>
             <Form.Item>
               <h2>Đăng Kí</h2>
             </Form.Item>

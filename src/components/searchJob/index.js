@@ -28,13 +28,13 @@ function JobSearch(){
 
   return (
     <>
-      <div style={{margin:"80px 100px"}}>
+      <div style={{margin: window.innerWidth < 576 ? "80px 30px" : "80px 100px" }}>
         <h2>Kết quả tìm kiếm {param.get("title") != "undefined" ? '"'+ param.get("title") +'"' : ''} {param.get("title") != "undefined" && param.get("city") != "undefined" ? "&": ''} {param.get("city") != "undefined" ? '"'+param.get("city")+'"' : ''} {param.get("tags") != "undefined" ? '"'+ param.get("tags") +'"' : ''}</h2>
         <div className="listJobSearch">
           <Row gutter={15}>
             {dataSearch.map(job => {
               return (
-                <Col style={{marginBottom:"10px"}} key={job.id} sm={6}>
+                <Col style={{marginBottom:"10px"}} key={job.id} xs={24} sm={6}>
                   <Link to={"/details/job/" + job.id}>
                     <Card hoverable style={{height:"100%"}}>
                       <h3 level={4} style={{ marginBottom: 8 }}>

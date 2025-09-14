@@ -63,7 +63,7 @@ function SignIn(){
       {contextHolder}
       <div className="containerLogin">
         <div className="container--signIn">
-          <Form form={form} style={{width: 500 , backgroundColor:"#C5E2FC" , padding:"20px 40px" , borderRadius:10}} layout="vertical" name="signIn" onFinish={requestSignIn}>
+          <Form form={form} layout="vertical" name="signIn" onFinish={requestSignIn}>
             <Form.Item>
               <h2>Đăng nhập</h2>
             </Form.Item>

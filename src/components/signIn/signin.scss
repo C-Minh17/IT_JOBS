@@ -1,5 +1,18 @@
 .containerLogin{
   padding: 60px 100px;
+  form{
+    width: 500px;
+    background-color: rgb(197, 226, 252);
+    padding: 20px 40px;
+    border-radius: 10px;
+  }
+  @media (max-width:576px){
+    padding: 60px 30px;
+    form{
+      width: 300px;
+      padding: 5px 20px;
+    }
+  }
   margin: 60px 0;
   display: flex;
   justify-content: center;

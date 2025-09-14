@@ -5,6 +5,7 @@ import { Button, Modal, Popconfirm, Table, Tag, Tooltip } from "antd"
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons"
 import Cookies from "js-cookie"
 import { getUsers } from "../../api/user"
+import "./manageCV.scss"
 
 function ManageCV(){
   const token = Cookies.get("token")
@@ -117,7 +118,7 @@ function ManageCV(){
       </Modal>
       <h2>Danh sách các CV ứng tuyển</h2>
       <div className="listCVmanage">
-        <Table dataSource={dataSource} columns={columns} />;
+        <Table dataSource={dataSource} columns={columns} scroll={{ x: "max-content" }}/>;
       </div>
     </>
   )

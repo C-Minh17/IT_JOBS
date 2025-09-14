@@ -15,7 +15,7 @@ function DetailsCompanies(){
   return (
     <>
       <Card
-        title={dataCompany?.name}
+        title={<h4 style={{whiteSpace: "normal",wordBreak: "break-word",margin: 0}} level={4} >{dataCompany?.name}</h4>}
         variant="borderless"
         style={{ maxWidth: 800, margin: "90px auto", borderRadius: 12 }}
         extra={<a href={dataCompany?.website} target="_blank" rel="noreferrer">Website</a>}

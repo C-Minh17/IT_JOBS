@@ -6,6 +6,7 @@ import { Link } from "react-router";
 import { getCompanyId, patchCompanies } from "../../api/company";
 import Cookies from "js-cookie"
 import { getUsers } from "../../api/user"
+import "./manageJob.scss"
 
 function ManageJobs(){
   const token = Cookies.get("token")
@@ -166,7 +167,7 @@ function ManageJobs(){
   }
 
   const addJob = ()=>{
-    if(idCompany != "null"){
+    if(idCompany){
       showModal() 
       setIsTypeModel("post")
     }else{
@@ -186,12 +187,12 @@ function ManageJobs(){
       >
         <Form form={form} name="createCompany" layout="vertical" onFinish={createJob}>
           <Row gutter={20}>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item label="Tiêu đề" name={"title"} rules={[{required:true}]}>
                 <Input/>
               </Form.Item>
             </Col>
-            <Col sm={12}>
+            <Col xs={24} sm={12}>
               <Form.Item label="Yêu cầu kĩ năng" name={"tags"} rules={[{required:true}]}>
                 <Select
                   mode="multiple"
@@ -216,32 +217,32 @@ function ManageJobs(){
                  />
               </Form.Item>
             </Col>
-            <Col sm={12}>
+            <Col xs={24} sm={12}>
               <Form.Item label="Mức lương" name={"salary"} rules={[{required:true}]}>
                 <Input/>
               </Form.Item>
             </Col> 
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item label="Thành phố" name={"city"} rules={[{required:true}]}>
                 <Input/>
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item label="Địa chỉ" name={"address"} rules={[{required:true}]}>
                 <Input/>
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item label="Mô tả" name={"description"} rules={[{required:true}]}>
                 <Input.TextArea autoSize={{ minRows: 4, maxRows: 8 }}/>
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item label="Trạng thái" name={"status"} initialValue={true}>
                 <Switch checkedChildren="ON" unCheckedChildren="OFF" defaultChecked />
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item>
                 {isTypeModel === "post" ?
                 <Button type="primary" htmlType="submit">Tạo mới</Button> :
@@ -254,7 +255,7 @@ function ManageJobs(){
       <h2>Danh sách việc làm</h2>
       <Button style={{margin:"20px 0"}} icon={<PlusOutlined />} onClick={addJob}>Thêm job mới</Button>
       <div className="listJob">
-        <Table dataSource={dataSource} columns={columns} />;
+        <Table dataSource={dataSource} columns={columns} scroll={{ x: "max-content" }}/>;
       </div>
     </>
   )

@@ -82,7 +82,7 @@ function DetailsJobs(){
         <hr></hr>
         <Form form={form} onFinish={onApply} name="apply" layout="vertical">
           <Row gutter={20}>
-            <Col sm={6}>
+            <Col xs={24} sm={6}>
               <Form.Item 
                 label="Họ tên"
                 name="fullName"
@@ -91,7 +91,7 @@ function DetailsJobs(){
                 <Input />
               </Form.Item>
             </Col>
-            <Col sm={6}>
+            <Col xs={24} sm={6}>
               <Form.Item 
                 label="Số điện thoại"
                 name="phone"
@@ -100,7 +100,7 @@ function DetailsJobs(){
                 <Input />
               </Form.Item>
             </Col>
-            <Col sm={6}>
+            <Col xs={24} sm={6}>
               <Form.Item 
                 label="Email"
                 name="email"
@@ -109,7 +109,7 @@ function DetailsJobs(){
                 <Input />
               </Form.Item>
             </Col>
-            <Col sm={6}>
+            <Col xs={24} sm={6}>
               <Form.Item 
                 label="Thành phố "
                 name="city"
@@ -118,7 +118,7 @@ function DetailsJobs(){
                 <Input />
               </Form.Item>
             </Col>
-            <Col sm={6}>
+            <Col xs={24} sm={6}>
               <Form.Item 
                 label="Skills"
                 name="skill"
@@ -133,7 +133,7 @@ function DetailsJobs(){
                 />
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item 
                 label="Giới thiệu bản thân"
                 name="introduction"
@@ -142,7 +142,7 @@ function DetailsJobs(){
                 <Input.TextArea rows={5}/>
               </Form.Item>
             </Col>
-            <Col sm={24}>
+            <Col xs={24} sm={24}>
               <Form.Item 
                 label="Các projects đã làm"
                 name="projects"

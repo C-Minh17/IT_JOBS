@@ -47,8 +47,8 @@ function HeaderManage(prop){
       <div className="headerManage--nav">
         <div className="headerManage--nav__close"><Button onClick={()=>{setIsMenu(!isMenu) ; setIsModal(!isMenu)}} icon={!isMenu ? <MenuFoldOutlined /> : <MenuUnfoldOutlined/>}></Button></div>
         <div className="headerManage--nav__logout">
-          <Link to="/"><Button icon={<HomeOutlined />}>Home</Button></Link>
-          <Button onClick={showModal} icon={<LogoutOutlined />} type="primary"><Link>log out</Link></Button>
+          <Link to="/"><Button icon={<HomeOutlined />}><span className="text-btHeader">Home</span></Button></Link>
+          <Button onClick={showModal} icon={<LogoutOutlined />} type="primary"><Link><span className="text-btHeader">Log out</span></Link></Button>
         </div>
       </div>
     </>
