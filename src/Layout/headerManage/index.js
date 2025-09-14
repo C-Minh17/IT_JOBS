@@ -2,7 +2,7 @@ import { HomeOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, Use
 import { Button, Modal } from "antd"
 import { Link, useNavigate } from "react-router"
 import "./headerManage.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie"
 import { useDispatch, useSelector } from "react-redux";
 import { changeToken } from "../../actions/setToken";
@@ -32,6 +32,11 @@ function HeaderManage(prop){
     dispacth(changeToken())
     navigare("/")
   }
+  useEffect(()=>{
+    if (window.innerWidth <= 576 ){
+      setIsMenu(true)
+    }
+  },[])
   return (
     <>
       <Modal

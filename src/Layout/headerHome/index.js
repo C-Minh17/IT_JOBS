@@ -60,7 +60,7 @@ function HeaderHome(){
       </Modal>
       <div className="headerHome">
         <div className="headerHome--container">
-          <div className="headerHome--container__logo">IT Jobs</div>
+          <div className="headerHome--container__logo"><Link to={"/"}>IT Jobs</Link></div>
           <div className="headerHome--container--nav">
             {token ? (
               <>
